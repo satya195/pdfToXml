@@ -10,7 +10,6 @@ const LandingPage: React.FC = () => {
     const uploadedFile = e.dataTransfer.files[0];
     if (uploadedFile && uploadedFile.type === 'application/pdf') {
       setFile(uploadedFile);
-      startProcessing();
     } else {
       alert('Please upload a valid PDF file.');
     }
@@ -20,7 +19,6 @@ const LandingPage: React.FC = () => {
     const uploadedFile = e.target.files?.[0];
     if (uploadedFile && uploadedFile.type === 'application/pdf') {
       setFile(uploadedFile);
-      startProcessing();
     } else {
       alert('Please upload a valid PDF file.');
     }
@@ -43,16 +41,20 @@ const LandingPage: React.FC = () => {
           role="alert"
           aria-live="assertive"
         >
-          <div
-            className="processing-icon"
-            aria-hidden="true"
-          >
+          <div className="processing-icon" aria-hidden="true">
             ⏳
           </div>
           <p className="processing-text">Processing...</p>
           <p className="processing-subtext">
             Your XML file will automatically download once it is ready.
           </p>
+        </div>
+      ) : file ? (
+        <div className="convert-container">
+          <p className="uploaded-file-name">Uploaded: {file.name}</p>
+          <button className="convert-button" onClick={startProcessing}>
+            Convert to XML
+          </button>
         </div>
       ) : (
         <>
@@ -87,11 +89,6 @@ const LandingPage: React.FC = () => {
               Upload file
             </label>
           </div>
-          {file && (
-            <p className="uploaded-file-name">
-              Uploaded: {file.name}
-            </p>
-          )}
         </>
       )}
     </div>

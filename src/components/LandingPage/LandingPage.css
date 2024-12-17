@@ -82,9 +82,25 @@
 
 /* Uploaded file name */
 .uploaded-file-name {
-  margin-top: 1rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
   color: #555;
+}
+
+/* Convert button */
+.convert-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.convert-button:hover {
+  background-color: #43a047;
 }
 
 /* Processing container */
